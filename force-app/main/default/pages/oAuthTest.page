@@ -1,0 +1,14 @@
+<apex:page controller="oAuthTest">
+ <apex:form >
+     <apex:pageBlock >
+         <apex:pageBlockSection >
+           ClientId  : <apex:inputText value="{!clientID}"/>
+           <apex:commandButton value="Get Auth Token" action="{!RequestAuthToken}"/>
+           Auth Token : {!AuthToken}
+           <br/>
+           <apex:commandButton value="Get Access Token" action="{!FetchAccessToken}"/>
+           AccessToken : {!AccessToken}
+         </apex:pageBlockSection>
+     </apex:pageBlock>
+ </apex:form>
+</apex:page>

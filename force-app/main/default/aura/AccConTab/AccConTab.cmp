@@ -1,0 +1,12 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId"> 
+    <lightning:card iconName="standard:contact" title="Contacts" variant="narrow">
+        <lightning:tabset >
+            <lightning:tab label="International">
+                <c:AccContactDetail filter='International' recordId="{!v.recordId}"/>
+            </lightning:tab>
+            <lightning:tab label="Domestic">
+                <c:AccContactDetail filter='Domestic' recordId="{!v.recordId}"/>
+            </lightning:tab>
+        </lightning:tabset>
+    </lightning:card> 
+</aura:component>

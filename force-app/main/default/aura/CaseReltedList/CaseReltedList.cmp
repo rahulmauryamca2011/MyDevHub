@@ -1,0 +1,19 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" controller="CaseRelatedListService">
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="contactObj" type="contact"/>  
+    <aura:attribute name="contactId" type="string"/>      
+    <div>
+		Cases
+	</div>
+    <aura:iteration items="{!v.contactObj.Cases}" var="case">
+        <div>
+            <div class="slds-truncate" title="Case Number">CaseNumber:{!case.CaseNumber}</div>
+            <div class="slds-truncate" title="Case Number">Subject:{!case.Subject}</div> 
+            <div class="slds-truncate" title="Case Number">Priority:{!case.Priority}</div>
+            <div class="slds-truncate" title="Case Number">Status:{!case.Status}</div> 
+        </div>
+        
+    </aura:iteration>
+
+</aura:component>

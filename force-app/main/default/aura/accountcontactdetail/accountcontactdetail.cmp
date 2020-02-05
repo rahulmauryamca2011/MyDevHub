@@ -1,0 +1,16 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" controller="ClsAccountContact" >
+	<aura:attribute name="accountobj" type="Account[]"></aura:attribute>
+   
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+     
+    <lightning:select name="select" label="Account" required="true" messageWhenValueMissing="Did you forget to select a color?" ><!-- onchange="{!c.getvalue}" -->
+        <option value="">-- None --</option>
+        <aura:iteration items="{!v.accountobj}" var="ac">
+        	<option value="{!ac.Id}">{!ac.Name}</option>
+        </aura:iteration>
+        <!-- <aura:iteration items="{!v.accountobj}" var="acc">
+            <option value="{!acc.name}" >{!acc.name}1</option>
+        </aura:iteration> -->
+    </lightning:select>
+</aura:component>

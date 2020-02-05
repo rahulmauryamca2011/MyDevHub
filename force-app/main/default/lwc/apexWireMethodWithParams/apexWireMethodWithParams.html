@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="ApexWireMethodWithParams" icon-name="custom:custom63">
+        <div class="slds-m-around_medium">
+            <lightning-input type="search" onchange={handleClientIDChange} class="slds-m-bottom_small" label="Search" value={searchIdKey}></lightning-input>
+            <lightning-input type="search" onchange={handleClientNameChange} class="slds-m-bottom_small" label="Search" value={searchNameKey}></lightning-input>
+           
+            <template if:true={isDisp}>
+                <template if:true={contacts.data}>
+                    
+                    <lightning-radio-group name="radioGroup"
+                            label="Radio Group"
+                            options={options}
+                            value={value}
+                            type="radio"></lightning-radio-group>
+                   
+                </template> 
+            </template>
+        </div>
+    </lightning-card>
+</template>

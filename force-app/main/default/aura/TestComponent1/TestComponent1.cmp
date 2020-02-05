@@ -1,0 +1,6 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<aura:attribute name="phoneNumber" type="String" default="" />
+    <div>
+        <lightning:input type="tel" maxlength="10" label="Telephone" pattern="[0-9]*" name="tel" onblur="{!c.doFormat}" value="{!v.phoneNumber}"/>
+    </div>
+</aura:component>

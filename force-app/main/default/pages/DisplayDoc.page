@@ -1,0 +1,10 @@
+<apex:page controller="DisplayDoc" sidebar="false" showHeader="false"  >
+    <apex:form >
+               <!--<iframe height="700px" width="100%" src="data:Application/pdf;base64,{!pdf}" style="width:100%;" id="frame" frameborder="0"></iframe> -->
+              <iframe height="700px" width="100%" src="/servlet/servlet.FileDownload?file={!Fetchatt}" ></iframe>
+              <script>
+                document.getElementById('frame').height = window.innerHeight;
+                
+              </script>
+    </apex:form>
+</apex:page>

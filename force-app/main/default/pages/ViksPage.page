@@ -1,0 +1,41 @@
+<apex:page standardController="Account" extensions="AccountHierarchyCtrl">
+<apex:form >
+     <apex:pageBlock >
+         <apex:pageBlockSection rendered="{!IF(CurrAcc.ParentID = null,false,true)}" title="Parent Account">
+             <apex:outputField value="{!CurrAcc.Parent.name}"/>
+             <apex:outputField value="{!CurrAcc.Parent.AnnualRevenue}"/>
+             <apex:outputField value="{!CurrAcc.Parent.BillingCity}"/>
+             <apex:outputField value="{!CurrAcc.Parent.BillingCountry }"/>
+         </apex:pageBlockSection> 
+
+         <table width="100%" cellspacing="0" cellpadding="0" style="border:1px solid #eaeaea" >
+             <tr style="height:25px;">
+                 <th valign="top" style="padding-left:1%;padding-top:2px;border-right:1px solid #eaeaea;">Name</th>
+                 <th valign="top" style="padding-left:1%;padding-top:2px;border-right:1px solid #eaeaea;">AnnualRevenue</th>
+                 <th valign="top" style="padding-left:1%;padding-top:2px;border-right:1px solid #eaeaea;">BillingCity</th>
+                 <th valign="top" style="padding-left:1%;padding-top:2px;border-right:1px solid #eaeaea;">BillingCountry</th>
+                 <!-- can add more column here  --->
+             </tr>
+             <apex:repeat value="{!lstWrapAc}" var="VarAc">
+                 <tr style="height:25px;background-color:white;">
+                     <td valign="top" style="padding-left:1%;padding-top:2px;border-bottom:1px solid #eaeaea;"><a href="/{!VarAc.acc.id}" target="_blank">{!VarAc.acc.Name}</a></td>
+                     <td valign="top" style="padding-left:1%;padding-top:2px;border-bottom:1px solid #eaeaea;"><apex:outputField value="{!VarAc.acc.AnnualRevenue}"/></td>
+                     <td valign="top" style="padding-left:1%;padding-top:2px;border-bottom:1px solid #eaeaea;">{!VarAc.acc.BillingCity}</td>
+                     <td valign="top" style="padding-left:1%;padding-top:2px;border-bottom:1px solid #eaeaea;">{!VarAc.acc.BillingCountry}</td>
+                 </tr>
+                     <!-- can add more column here  --->
+                 <apex:repeat rendered="{!IF(VarAc.lstAc.size >0,true,false)}" value="{!VarAc.lstAc}" var="ac" >
+                 
+                     <tr style="height:25px;background-color:white;">
+                         <td style="padding-left:5%;padding-top:2px;border-bottom:1px solid #eaeaea;"><a href="/{!ac.id}" target="_blank">{!ac.Name}</a></td>
+                         <td valign="top" style="padding-left:1%;padding-top:2px;border-bottom:1px solid #eaeaea;"><apex:outputField value="{!ac.AnnualRevenue}"/> </td>
+                         <td valign="top" style="padding-left:1%;padding-top:2px;border-bottom:1px solid #eaeaea;">{!ac.BillingCity}</td>
+                         <td valign="top" style="padding-left:1%;padding-top:2px;border-bottom:1px solid #eaeaea;">{!ac.BillingCountry}</td>
+                         <!-- can add more column here  --->
+                      </tr>
+                 </apex:repeat>
+             </apex:repeat>
+         </table>    
+     </apex:pageBlock>
+</apex:form>
+</apex:page>

@@ -1,0 +1,49 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" 
+                controller="AccContactDetailService"
+                access="global" >
+    
+    <!-- Handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <!-- Attribite -->
+    <aura:attribute name="accountObj" type="Account"/>
+    <aura:attribute name="contactId" type="string"/> 
+    <aura:attribute name="filter" type="string"/>
+    <aura:attribute name="recordId" type="string"/>
+    
+    <!-- Main Body -->
+    
+        <table class="slds-table slds-table--bordered slds-table--cell-buffer slds-table--striped">
+            <thead>
+                <tr class="slds-text-title--caps">
+                    <th scope="col">
+                        <div class="slds-truncate" title="Contact Name">Contact Name</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Title">Title</div>
+                    </th>
+                    <th scope="col">
+                        <div  title="Lastmodifieddate">Lastmodifieddate</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Add Case">Add Case</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="View Case">View Case</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="View Case">Total Case</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Action">Action</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.accountObj.Contacts}" var="contactObj" indexVar="index">
+                    <c:ContactRelatedList contactObj="{!contactObj}"/>
+                </aura:iteration>
+            </tbody>
+        </table> 
+  
+</aura:component>

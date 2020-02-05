@@ -1,0 +1,9 @@
+<apex:page controller="Practise" >
+  <apex:form >
+  <apex:outputText value="Account"/>
+  <apex:pageBlock title="Account" mode="edit">
+  
+    </apex:pageBlock>
+  </apex:form>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

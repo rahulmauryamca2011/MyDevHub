@@ -1,0 +1,57 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" 
+                controller="CreateCandidateRecord">
+    <aura:attribute name="candidate" type="Candidate__c" default="{'sobjectType': 'Candidate__c'
+                                                                  }"/>
+    <div class="demo-only" style="height: 640px;">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+                        
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Create Candidate</h2>
+                </header>
+                
+           
+                
+				
+				<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+					     <div class="slds-form-element">
+				<label class="slds-form-element__label" for="input-id-02"></label>
+					<div class="slds-form-element__control">
+						   <ui:inputText class="form-control"  label="First Name  :" value="{!v.candidate.First_Name__c}"/>
+					</div>
+				</div>
+				  <div class="slds-form-element">
+				<label class="slds-form-element__label" for="input-id-02"></label>
+					<div class="slds-form-element__control">
+						  <ui:inputText class="form-control" label="Last Name :" value="{!v.candidate.Last_Name__c}"/>
+					</div>
+				</div>
+				  <div class="slds-form-element">
+				<label class="slds-form-element__label" for="input-id-02"></label>
+					<div class="slds-form-element__control">
+						  <ui:inputText class="form-control" label="Email Address :" value="{!v.candidate.Email__c}"/>
+					</div>
+				</div>
+				  <div class="slds-form-element">
+				<label class="slds-form-element__label" for="input-id-02"></label>
+					<div class="slds-form-element__control">
+						    <ui:inputText class="form-control" label="SSN :" value="{!v.candidate.SSN__c}"/>
+					</div>
+				</div>
+				</div>
+                
+                
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral">Cancel</button>
+                     <lightning:button variant="brand" label="Save" onclick="{!c.create}" />
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+    
+</aura:component>

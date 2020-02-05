@@ -1,0 +1,12 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="strAcName" type="string" default="Search Acc" />
+    <aura:attribute name="strType" type="string" default="Search Type" />
+    <aura:attribute name="lstContact" type="Contact[]" />
+    
+    <div>
+        <ui:inputText aura:id="accName" value="{!strAcName}" label="Enter Name" required="true"/>
+        <ui:inputText aura:id="accType" value="{!strType}"  label="Enter Type" required="true"/>
+        
+        <ui:button label="Search" aura:id="btnSerch" class="button" press="{!c.SearchContact}"/>
+    </div>
+</aura:component>

@@ -1,0 +1,35 @@
+<apex:page standardController="contact" recordSetvar="Cont"  showHeader="false" sidebar="false">
+ <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+        <head>
+            <style>
+                .head{
+                font-size:1.3em;
+                }
+                .slds-scope .slds-icon-standard-account {
+                background-color: #7f8de1;
+                width: 35px;
+                height: 33px;
+                margin-right: 10px;
+                margin-top: 3px;
+                }
+                .wk_btn{
+                margin: 10px 45% !important;
+                }
+                 
+            </style>
+        </head>
+        <apex:Slds rendered="true"/> 
+        <div class = "slds-scope">
+     <apex:pageBlock >
+         <!--<apex:pageBlockSection columns="1">
+             <apex:pageBlockTable value="{!contact.cases}" var="case">
+                 <a href="/{!case.id}" target="_blank"><apex:column value="{!case.CaseNumber}"/></a>
+                 <apex:column value="{!case.subject}"/>
+             </apex:pageBlockTable>
+         </apex:pageBlockSection> -->
+          <apex:relatedList list="cases" />
+
+     </apex:pageBlock>
+     </div>
+     </html>
+</apex:page>

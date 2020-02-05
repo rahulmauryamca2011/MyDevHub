@@ -1,0 +1,6 @@
+<aura:component controller="OrderEditCls" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction,lightning:actionOverride" access="global" >
+	<aura:attribute name="SalesOrder" type="Object" description="Object used to hold all new data that needs to be saved" />
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	
+
+</aura:component>

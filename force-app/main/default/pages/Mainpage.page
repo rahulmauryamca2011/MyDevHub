@@ -1,0 +1,11 @@
+<apex:page standardController="SalesOrder__c" extensions="MainpageCtrl">
+ <apex:form >
+     <apex:pageBlock >
+        
+         <apex:pageBlockSection >
+            <apex:commandLink action="{!OpenPage}" value="OpenPage"/>
+         <apex:outputField value="{!SalesOrder__c.Open_next_Page__c}"/>
+         </apex:pageBlockSection>
+     </apex:pageBlock>
+ </apex:form>
+</apex:page>

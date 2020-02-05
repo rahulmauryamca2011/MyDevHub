@@ -1,0 +1,113 @@
+<apex:page Controller="AccountTest" id="page">
+<apex:includeScript value="{! $Resource.jQuerylatest }"/>
+<script>
+
+function linkClickEvent (element) {
+
+   $(element).parent().next().next().find(":input").attr('disabled',false);
+    return false;
+}
+
+
+
+</script>
+<apex:form id="frm">
+<apex:actionFunction name="editRec" action="{!EditRec}" reRender="frm"/>
+  
+
+<apex:inputHidden id="hdnRowNo" value="{!rowNo}"/>
+<table><tr><td width="20%"><apex:outputText value="Account" style="color:#F00;font-weight: bold;" /></td>
+<td>
+<apex:selectList size="1"  value="{!value}" >
+<apex:actionSupport event="onchange" action="{!selectedvalue}" reRender="TT, messageBlock"/>
+      <apex:selectOptions value="{!Accountlist}"></apex:selectOptions>
+  </apex:selectList>
+</td>
+</tr></table>
+<apex:pageBlock id="TT">
+<table>
+<tr>
+</tr>
+<tr>
+<td>
+<apex:outputText value="Contacts" style="color:#F00;font-weight: bold;"></apex:outputText>
+</td>
+</tr>
+<tr>
+<td>
+<apex:dataTable value="{!lstconc}" var="ConData" id="theTable" rowClasses="odd,even" border="2" width="800px">
+            <apex:column width="25%" >
+                    <apex:facet name="header">ID</apex:facet>
+                    <apex:outputText value="{!ConData.id}"/>
+            </apex:column>
+            <apex:column >
+
+                    <apex:facet name="header">Name</apex:facet>
+                    <apex:inputText value="{!ConData.Name}" />
+
+            </apex:column>
+
+            <apex:column >
+
+                    <apex:facet name="header">Phone</apex:facet>
+
+                    <apex:inputText value="{!ConData.Phone}" />
+            </apex:column>
+        </apex:dataTable>
+
+</td>
+</tr>
+
+
+<tr><td width ="20%">
+
+<apex:outputText value="Opportunity" style="color:#F00;font-weight: bold;"></apex:outputText>
+&nbsp;
+<apex:commandButton value="New" action="{!addOpportunity}" reRender="theoppTable" />
+&nbsp;
+<apex:commandButton value="Save " action="{!SaveOpportunity}" reRender="theoppTable" />
+</td>
+</tr>
+<tr>
+<td>
+<apex:dataTable value="{!lstopp}" var="oppData" id="theoppTable" rowClasses="odd,even" border="2" width="800px">
+            <apex:column width="25%" >
+            <apex:commandButton id="cmdEdit" value="Edit"  styleClass="btnClick"  onclick=" return linkClickEvent(this);" >
+              
+            </apex:commandButton>
+            <apex:commandButton id="cmdDelete" value="Delete"/>
+            </apex:column>
+            <apex:column width="25%" >
+                    <apex:facet name="header">ID</apex:facet>
+                    <apex:outputText value="{!oppData.Id}"/>
+            </apex:column>
+            <apex:column >
+
+                    <apex:facet name="header">Name</apex:facet>
+                    <apex:inputField id="lblName" value="{!oppData.Name}"  html-disabled="true"  />
+
+                    
+            </apex:column>
+
+            <apex:column >
+
+                    <apex:facet name="header">Amount</apex:facet>
+                    <apex:inputfield id="lblAmount" value="{!oppData.Amount}" html-disabled="true"  />
+                    
+            </apex:column>
+                <apex:column >
+
+                    <apex:facet name="header">Description</apex:facet>
+                    <apex:inputField id="lblDescription" value="{!oppData.Description}" html-disabled="true" />
+                    
+            </apex:column>
+        </apex:dataTable>
+
+</td>
+</tr>
+
+</table>
+</apex:pageBlock>
+
+</apex:form>
+</apex:page>

@@ -1,0 +1,32 @@
+<apex:page Standardcontroller="Account" >
+  <!-- Begin Default Content REMOVE THIS -->
+  <apex:form >
+  <table>
+  <tr><td>
+  <apex:outputLabel >Account number</apex:outputLabel>
+  </td>
+  <td>
+  <apex:inputField value="{!Account.AccountNumber}"/>
+  </td>
+  </tr>
+  <tr>
+  <td>
+  <apex:outputLabel >Site</apex:outputLabel>
+  </td>
+  <td>
+  <apex:outputfield value="{!Account.Site}" >  
+  <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+  </apex:outputField>
+  </td>
+  </tr>
+  </table>
+  
+  
+  
+
+  
+  </apex:form>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

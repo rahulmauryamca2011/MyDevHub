@@ -1,0 +1,29 @@
+<apex:page Controller="AccountDetail">
+  <!-- Begin Default Content REMOVE THIS -->
+  <apex:form >
+  <apex:actionStatus startText="Processing..." stopText="Done!" id="btnStatus"></apex:actionStatus>
+  <apex:pageBlock title="Account Filters" >
+   <apex:pageBlockSection columns="3" >
+   <apex:outputText value="Account Name">
+   </apex:outputText>
+   <apex:inputText value="{!Accountname}" id="theTextInput"/> 
+   </apex:pageBlockSection>
+   <apex:pageBlockButtons >
+   <apex:commandButton value="Search" action="{!fetchData}" reRender="pb" status="btnStatus"  />
+   </apex:pageBlockButtons> 
+    <apex:pageBlockTable id="pb" value="{!Contacts}" var="item">
+        <apex:column headerValue="ContactID" >
+        <apex:inputField value="{!item.id}"/>
+        </apex:column>
+        <apex:column headerValue="Name">
+        <apex:inputText value="{!item.name}"/>
+        </apex:column>
+        <apex:column headerValue="Phone">
+        <apex:inputText value="{!item.phone}"/>
+        </apex:column>
+        
+    </apex:pageBlockTable>
+  </apex:pageBlock>
+  </apex:form>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

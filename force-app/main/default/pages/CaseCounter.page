@@ -1,0 +1,5 @@
+<apex:page standardcontroller="Case" extensions="CaseCounterCls" action="{!Validate}" showHeader="false">
+  
+<apex:pageMessages id="showmsg" />
+  
+</apex:page>

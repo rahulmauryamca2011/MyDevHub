@@ -1,0 +1,5 @@
+<apex:page standardcontroller="Account">
+    <flow:interview name="Create_Contact_using_Flow" finishLocation="/{!Account.id}">
+        <apex:param name="VarAcId" value="{!Account.id}"/>
+    </flow:interview>
+</apex:page>

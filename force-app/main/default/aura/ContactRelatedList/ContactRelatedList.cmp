@@ -1,0 +1,52 @@
+<aura:component controller="AccContactDetailService">    
+    
+    <aura:attribute name="contactObj" type="Contact"/>
+    <aura:attribute name="count" type="Integer"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <tr>
+        <td data-label="Contact Id">
+            <div class="slds-truncate" title="Contact Name"><a href="{!'/'+v.contactObj.Id}">{!v.contactObj.Name}</a></div>
+        </td>
+        <td data-label="Name">
+            <div class="slds-truncate" title="Title">{!v.contactObj.Title}</div>
+        </td>
+        <td data-label="Name">
+            <div  title="Lastmodifieddate"><ui:outputDateTime value="{!v.contactObj.LastModifiedDate}"></ui:outputDateTime></div>
+        </td>
+        <td data-label="Name">
+            <div class="slds-truncate" title="Add Case"><a onclick="{!c.createRecord}">Create Case</a></div>
+        </td>
+        <td data-label="Name">
+            <div class="slds-truncate" title="View Case"><a onclick="{!c.applycss}">View Case</a></div>
+        </td>
+        <td data-label="Name">
+            <div class="slds-truncate" title="Total Case">{!v.count}</div>
+        </td>
+        <td data-label="Name">
+            <div class="slds-truncate" title="Edit">
+                <a onclick="{!c.editRecord}">Edit</a> / <a onclick="{!c.deleter}">Delete</a>
+            </div>
+        </td>
+    </tr> 
+    <div role="dialog" tabindex="-1" aura:id="Modalbox" aria-labelledby="header43" class="slds-modal">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <button class="slds-button slds-button--icon-inverse slds-modal__close" onclick="{!c.removecss}">
+                    <span>
+                        close
+                        <span class="slds-assistive-text">Close</span>
+                    </span>                 
+                </button>
+                <strong><h2 id="header43" class="slds-text-heading--medium">Cases</h2></strong>
+            </div>
+            <div class="slds-modal__content slds-p-around--medium">
+                <div class="slds-wrap" style="height:50px">
+                    <c:CaseReltedList contactId="{!v.contactObj.Id}"/>
+                </div>
+            </div>
+            <div class="slds-modal__footer">                   
+            </div>
+        </div>
+    </div>
+    <div class="slds-backdrop " aura:id="MB-Back"></div>
+</aura:component>
